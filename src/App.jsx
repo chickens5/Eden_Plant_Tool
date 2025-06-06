@@ -17,6 +17,7 @@ Culture, Knowledge & Health – Herbalism, teaching, art, spiritual values. */
 import React, { useState, useEffect, useRef } from "react";
 import './styles/global.css';
 import './styles/components.css';
+import AnimatedBackground from './components/animatedBackground.jsx';
 
 
 export default function NativePlantRecommender() {
@@ -226,39 +227,79 @@ export default function NativePlantRecommender() {
 
     const getLandPlan = (plant) => {
         return Object.entries(plant)
-            .filter(([key, value]) => filterOptions.landscapePlan.includes(key) && value)
+            .filter(([key, value]) => filterOptions.landscape.includes(key) && value)
             .map(([key]) => landscapeDisplayNames[key]);
     };
 
     return (
         <div className="page-container" ref={pageContainerRef} onScroll={handleScroll}>
-            <div className="title-container">
-                <h1 className="title-container">
-                    Eden
-                </h1>
-                <h2>Garden Planner</h2>
+            <div className="title-text">
+                <div className="wrapper">
+                    <div id="E" className="letter">E</div>
+                    <div className="shadow">E</div>
+                </div>
+                <div className="wrapper">
+                    <div id="D" className="letter">D</div>
+                    <div className="shadow">D</div>
+                </div>
+                <div className="wrapper">
+                    <div id="E" className="letter">E</div>
+                    <div className="shadow">E</div>
+                </div>
+                <div className="wrapper">
+                    <div id="N" className="letter">N</div>
+                    <div className="shadow">N</div>
+                </div>
             </div>
 
-                <div className = "intro-container">
-                    <h4>
+
+
+            <div>
+                <video
+                    className="bg-vid w-full h-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                >
+                    <source src="/bg-vid.mp4" type="video/mp4"/>
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div className="filter-section">
+                <div className="intro-container">
+                    <h2 className='header-container'>
+                        Garden Planner
+                    </h2>
+
+                    <AnimatedBackground/>
+
+                    <h4 id = 'intro-header'>
                         Utilize the filters below to select the perfect plant or food for your green space :)
                     </h4>
-                </div>
-                <div className ="mini-container">
-                    <h6>
-                        Did you know? Native plants help us fight climate change by creating life in soil, serving as wildlife keystones, and preventing flooding while providing filtered drinking water!
-                    </h6>
-                </div>
-                <div className="filter-section">
-                    <h4 className='header-container'>
-                        Filter Plants:
-                    </h4>
+
                     <div className="filter-group">
+                        <h5 className='mini-container'>
+                            Sunlight:
+                        </h5>
+
+                        {filterOptions.sunlight.map(light => (
+                            <label key={light}>
+                                {light === 'full_sun' ? 'Full Sun' : light === 'part_shade' ? 'Part Shade' : 'Full Shade'}
+                                <input
+                                    type="checkbox"
+                                    checked={selectedFilters.sunlight.includes(light)}
+                                    onChange={() => handleFilterChange('sunlight', light)}
+                                />
+                            </label>
+                        ))}
+
                         <h5 className='mini-container'>
                             Plant Type:
                         </h5>
                         {filterOptions.plantType.map(plant_type => (
-                            <label key={plant_type}>
+                            <label className='filter-container' key={plant_type}>
                                 {plant_type === 'Tree' ? 'Tree' : ''}
                                 {plant_type === 'Forb' ? 'Forb' : ''}
                                 {plant_type === 'Grass' ? 'Grass' : ''}
@@ -271,40 +312,34 @@ export default function NativePlantRecommender() {
                                 />
                             </label>
                         ))}
-                        <h5 className='mini-container'>
-                            Sunlight:
-                        </h5>
-                        {filterOptions.sunlight.map(light => (
-                            <label key={light}>
-                                {light === 'full_sun' ? 'Full Sun' : light === 'part_shade' ? 'Part Shade' : 'Full Shade'}
-                                <input
-                                    type="checkbox"
-                                    checked={selectedFilters.sunlight.includes(light)}
-                                    onChange={() => handleFilterChange('sunlight', light)}
-                                />
-                            </label>
-                        ))}
+
                         <div className="dropdown">
+
                             <h5 className="mini-container">
                                 Habitat/Use:
                             </h5>
+
                             <select
                                 value={selectedFilters.habitat[0] || 'None'}
                                 onChange={(e) => handleFilterChange('habitat', e.target.value)}
                                 className="dropdown-select">
+
                                 <option>
                                     -- Select Habitat --
                                 </option>
+
                                 {filterOptions.habitat.map((habitat) => (
                                     <option key={habitat} value={habitat}>
                                         {habitatDisplayNames[habitat]}
                                     </option>
                                 ))}
+
                             </select>
                             <button onClick={clearHabitatFilter} className="clear-button">
                                 Clear Filter
                             </button>
                         </div>
+
                         <div className="dropdown">
                             <h5 className="mini-container">
                                 Landscape Plan:
@@ -327,82 +362,95 @@ export default function NativePlantRecommender() {
                             </button>
                         </div>
 
-                        <button className = "scroll-to-results-button" onClick={() => setShowList(!showList)}>
+                        <button className="scroll-to-results-button" onClick={() => setShowList(!showList)}>
                             {showList ? "Hide Plants" : "Show Plants"}
                         </button>
                     </div>
+                </div>
             </div>
-                <div className="content-container">
-                    {loading && (
-                        <div className="loading-message">
-                            <h4>
-                                Loading, please wait :)
-                            </h4>
-                        </div>
-                    )}
-                    <h4 className ="header-container">Recommendations: {recommendations.length}</h4>
-                    <ul>
-                        {showList && currentPlants.map((plant, index) => (
-                            <li className="plant-list" key={index} onClick={() => showPlantDetails(plant)}>
-                                <div className="header-container">
-                                    <strong>{plant.common_name.toUpperCase()}</strong><br />
-                                <strong>{plant.plantType}</strong><br />
+            {loading && (
+                <div className="loading-message">
+                    <h4>
+                        Loading, please wait :)
+                    </h4>
+                </div>
+            )}
+            <div className="app-container">
+                <h4 className="header-container">Recommendations: {recommendations.length}</h4>
+                <ul>
+                    {showList && currentPlants.map((plant, index) => (
+                        <li className="plant-list" key={index} onClick={() => showPlantDetails(plant)}>
+                            <div className="plant-title">
+                                <strong>{plant.common_name.toUpperCase()}</strong><br/>
+                                <strong>{plant.plantType}</strong><br/>
                                 <em>{plant.botanical_name}</em>
-                                </div>
-                                <div className="plant-traits">
-                                    {plant.rain_garden_wet && <span className="trait-badge wet">Loves Water (Rain garden)</span>}
-                                    {plant.bloom_time && <span className="trait-badge pollinator">Pollinator</span>}
-                                    {plant.rain_garden_dry && <span className="trait-badge dry">Drought Tolerant (Rain garden slopes)</span>}
-                                    {plant.bioswale && <span className="trait-badge bioswale">Flooding Control/Bioswale</span>}
-                                    {plant.wildlife_keystone && <span className="trait-badge wildlife">Wildlife Keystone</span>}
-                                    {plant.ground_cover && <span className="trait-badge groundcover">Ground Cover</span>}
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                    <div className="pagbuttons-container">
-                        {showAll && (
-                            <button onClick={handlePaginatedView} className="pagination-button">
-                                Show Paginated
-                            </button>
-                        )}
-                        {!showAll && (
-                            <>
-                                <button className="pagination-button" disabled={currentPage === 1} onClick={() => setCurrentPage(p => p - 1)}>
-                                    ← Prev
-                                </button>
-                                <p className='pageNum-button'>Page {currentPage} of {totalPages}</p>
-                                <button className="pagination-button" disabled={currentPage === totalPages} onClick={() => setCurrentPage(p => p + 1)}>
-                                    Next →
-                                </button>
-                            </>
-                        )}
-                    </div>
-                    <div className="pagbuttons-container">
-                        <button onClick={scrollToTop} className="pagination-button">
-                            <img className ="plant-image" src ="/public/images/goUp.png" alt="Go Up!"
-                            />
+                            </div>
+                            <div className="plant-traits">
+                                {plant.rain_garden_wet &&
+                                    <span className="trait-badge wet">Loves Water (Rain garden)</span>}
+                                {plant.bloom_time && <span className="trait-badge pollinator">Pollinator</span>}
+                                {plant.rain_garden_dry &&
+                                    <span className="trait-badge dry">Drought Tolerant (Rain garden slopes)</span>}
+                                {plant.bioswale &&
+                                    <span className="trait-badge bioswale">Flooding Control/Bioswale</span>}
+                                {plant.wildlife_keystone &&
+                                    <span className="trait-badge wildlife">Wildlife Keystone</span>}
+                                {plant.ground_cover && <span className="trait-badge groundcover">Ground Cover</span>}
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+                <div className="pagbuttons-container">
+                    {showAll && (
+                        <button onClick={handlePaginatedView} className="pagination-button">
+                            Show Paginated
                         </button>
+                    )}
+                    {!showAll && (
+                        <>
+                            <button className="pagination-button" disabled={currentPage === 1}
+                                    onClick={() => setCurrentPage(p => p - 1)}>
+                                ← Prev
+                            </button>
+                            <p className='pageNum-button'>Page {currentPage} of {totalPages}</p>
+                            <button className="pagination-button" disabled={currentPage === totalPages}
+                                    onClick={() => setCurrentPage(p => p + 1)}>
+                                Next →
+                            </button>
+                        </>
+                    )}
+                </div>
+                <div className="pagbuttons-container">
+                    <button onClick={scrollToTop} className="pagination-button">
+                        !Go ^^ Up!
+                    </button>
                     <button onClick={handleViewAll} className="pagination-button">
                         View All Plants
                     </button>
-                    </div>
                 </div>
+            </div>
             {selectedPlant && (
                 <div className="results-list">
                     <div ref={plantDetailRef} className="plant-details">
                         <div className="header-container">
-                            <strong>Scientific Name</strong><br />
+                            <strong>Scientific Name</strong><br/>
                             <h4>{selectedPlant.botanical_name}</h4>
                             <h2>Common Name:</h2>
                             <strong>{selectedPlant.common_name.toUpperCase()}</strong>
                         </div>
-                    <section className ="mini-container">
+                        <section className="mini-container">
                             <h3>Genus:</h3>
                             <h4>{(selectedPlant.botanical_name.split(' ')[0])}</h4>
                             <strong>Type: {selectedPlant.plant_type || 'Plant'}</strong>
-                    </section>
+                        </section>
                         <div className="plant-image-container">
+                            {loading && (
+                                <div className="loading-message">
+                                    <h4>
+                                        Loading, please wait :)
+                                    </h4>
+                                </div>
+                            )}
                             <img
                                 className="plant-image"
                                 src={getImageFromJson(selectedPlant, genusImages)}
@@ -420,14 +468,18 @@ export default function NativePlantRecommender() {
                             <p>{getDescription(selectedPlant, genusImages) || 'No Description Found'}</p>
                         </section>
                         <div className={'plant-tag-container'}>
-                            <h4 className ='mini-container'>Plant Characteristics:</h4>
+                            <h4 className='mini-container'>Plant Characteristics:</h4>
                             <div className="plant-traits">
                                 {selectedPlant.rain_garden_wet && <span className="trait-badge wet">Loves Water</span>}
                                 {selectedPlant.bloom_time && <span className="trait-badge pollinator">Pollinator</span>}
-                                {selectedPlant.rain_garden_dry && <span className="trait-badge dry">Drought Tolerant</span>}
-                                {selectedPlant.bioswale && <span className="trait-badge bioswale">Flooding Control/Bioswale</span>}
-                                {selectedPlant.wildlife_keystone && <span className="trait-badge wildlife">Wildlife Keystone</span>}
-                                {selectedPlant.ground_cover && <span className="trait-badge groundcover">Ground Cover</span>}
+                                {selectedPlant.rain_garden_dry &&
+                                    <span className="trait-badge dry">Drought Tolerant</span>}
+                                {selectedPlant.bioswale &&
+                                    <span className="trait-badge bioswale">Flooding Control/Bioswale</span>}
+                                {selectedPlant.wildlife_keystone &&
+                                    <span className="trait-badge wildlife">Wildlife Keystone</span>}
+                                {selectedPlant.ground_cover &&
+                                    <span className="trait-badge groundcover">Ground Cover</span>}
                             </div>
                             <p>Soil: {selectedPlant.soil_type === 'moist' ? 'Moist areas' : 'Dry areas'}</p>
                             <p>Sun: {selectedPlant.full_sun ? 'Full sun' : ''}
@@ -435,7 +487,7 @@ export default function NativePlantRecommender() {
                                 {selectedPlant.full_shade ? ' Full shade' : ''}</p>
                             <p>Height: {selectedPlant.height}</p>
                             <p>Bloom Time: {selectedPlant.bloom_time}</p>
-                            <h4 className ='mini-container'>Recommended Uses:</h4>
+                            <h4 className='mini-container'>Recommended Uses:</h4>
                             <p>{getPlantHabitats(selectedPlant).join(', ') || 'None specified'}</p>
                         </div>
                     </div>

@@ -4,16 +4,104 @@
 body {
     margin: 0;
     padding: 0;
+    background: url("./eden-logo.svg");
     font-family: 'Montserrat Black', sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(rgba(194, 255, 187, 0.6) 50%), url('./eden-logo.svg');
     background-size: cover;
     background-position: center;
     background-blend-mode: overlay;
     background-attachment: fixed;
+}
+.overlay {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 30vh;
+    z-index: 100;
+
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 1) 75%,
+            rgba(255, 255, 255, 0.9) 80%,
+            rgba(255, 255, 255, 0.25) 95%,
+            rgba(255, 255, 255, 0) 100%
+    );
+}
+
+.title-text {
+    font-family: "Yanone Kaffeesatz";
+    font-size: 100px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    width: auto;
+    color: #eeeeee;
+    user-select: none;
+
+    .wrapper {
+        padding-left: 20px;
+        padding-right: 20px;
+
+        padding-top: 20px;
+        .letter {
+            transition: ease-out 1s;
+            transform: translateY(40%);
+        }
+        .shadow {
+            transform: scale(1, -1);
+            color: #ff0000;
+            transition: ease-in 5s, ease-out 5s;
+        }
+        &:hover {
+            .letter {
+                transform: translateY(-200%);
+            }
+            .shadow {
+                opacity: 0;
+                transform: translateY(200%);
+            }
+        }
+    }
+}
+
+
+.bg-vid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 125rem;
+    z-index: -1;
+}
+
+.animated-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -10;
+    background-image: url('./eden-logo.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: float-bg 10s ease-in-out infinite;
+    opacity: 0.9;
+    filter: brightness(1.05) saturate(1.1);
+}
+
+@keyframes float-bg {
+    0% {
+        transform: translateY(0px) scale(1);
+    }
+    50% {
+        transform: translateY(-10px) scale(1.02);
+    }
+    100% {
+        transform: translateY(0px) scale(1);
+    }
 }
 
 
@@ -24,6 +112,42 @@ body {
         margin-bottom: 0.75rem;
 
     }
+
+#body-header {
+    display: flow;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    border: #1a1e1c 12px solid;
+    transition: background-color 1s ease;
+}
+#body-header:hover {
+    text-decoration: none;
+    background-color: #0f3905;
+    transform: scale(1.15);
+    transition: background-color 1s ease;
+    box-shadow: 0 12px 36px rgba(59, 63, 66, 0.4);
+
+}
+
+
+
+    #intro-header {
+        display: flex;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border: #1a1e1c 8px solid;
+    }
+#intro-header:hover {
+    text-decoration: none;
+    background-color: #98bfaa;
+    transform: scale(1.05);
+    box-shadow: 0 12px 36px rgba(59, 63, 66, 0.4);
+
+}
 
     h4, h5, h6 {
         font-size: 1.25rem;
@@ -58,28 +182,27 @@ body {
     }
 
 .page-container {
-    max-width: 1200px; /* Keep all pages centered & aligned */
+    max-width: 500rem; /* Keep all pages centered & aligned */
     margin: 0 auto;
-    width: 100%;
+    width: auto;
     outline: black solid 3.3px;
     padding: 35px;
 }
 
 .title-container{
     margin: 1rem auto;
-    width: 50%;
     font-size: 2.5rem;
+    height: auto;
     font-weight: bolder;
-    text-align: center;
     color: #eeeeee;
     outline: rgba(0, 0, 0, 0.73) solid 3.3px;
-    background-color: rgb(82, 74, 54);
+    background-color: rgba(54, 78, 82, 0.18);
     border-left: 6px solid #78BE21FF;
     border-right: 6px solid #78BE21FF;
     border-radius: 1rem;
     border-bottom: #1a1e1c 1px solid;
     box-shadow: rgba(0, 247, 255, 0.67) 5px 10px 1px;
-    padding: 35px;
+    padding: 5px;
 }
 .loading-message {
     text-align: center;
@@ -97,12 +220,11 @@ body {
 
 
 .app-container {
-    background: rgba(205, 131, 21, 0.74);
-    max-width: 900px;
+    background: rgb(251, 156, 156);
     align-items: center;
     width: 100%;
     border-radius: 1rem;
-    box-shadow: 3px 2px 12px rgba(76, 60, 22, 0.58); /* UMSL dark gray as shadow */
+    border-left-color: rgb(0, 255, 155);
     text-align: center;
     margin: 2rem auto;
     padding: 1.5rem;
@@ -112,8 +234,8 @@ body {
 }
 
 .results-list   {
-    height: 100%;
-    width: 100%;
+    height: 75%;
+    width: 75%;
     background: #fbd872;
     margin: 50px auto;
     padding: 30px;
@@ -123,13 +245,12 @@ body {
 }
 
 .intro-container {
-    background: #78be21;
-    max-width: 900px;
+    background: #5b654e;
     align-items: center;
-    width: 75%;
+    width: 65%;
     height: auto;
     border-radius: 1rem;
-    box-shadow: -3.3px 2px 12px rgb(118, 35, 47); /* UMSL dark gray as shadow */
+    box-shadow: -3.3px 2px 12px rgb(190, 230, 49); /* UMSL dark gray as shadow */
     text-align: center;
     margin: 2rem auto;
     padding: 1.5rem;
@@ -155,9 +276,11 @@ body {
 
 
 .header-container {
-        background-color: rgb(82, 74, 54);
-        border-left: 6px solid #78BE21FF;
-        border-right: 6px solid #78BE21FF;
+        background-color: rgb(246, 244, 217);
+        border-left: 16px solid #ee00ff;
+        border-right: 16px solid #000000;
+        border-top: 16px solid #000000;
+        border-bottom: 16px solid #df0aff;
         border-radius: 1rem;
         box-shadow: 0 8px 24px rgba(59, 63, 66, 0.3); /* UMSL dark gray as shadow */
         text-align: center;
@@ -168,27 +291,12 @@ body {
         font-weight: bold;
     }
 
-    .header-container:hover {
-        transform: scale(1.02);
+.header-container:hover {
+        transform: scale(1.30);
         box-shadow: 0 12px 36px rgba(59, 63, 66, 0.4);
     }
-    .nav-links {
-        background-color: #ffffff;
-        border-radius: 0.5rem;
-        font-size: 1.5rem;
-        width: 100%;
-        margin: 1rem auto;
-        text-align: center;
-        box-shadow:
-                0 2px 6px rgba(213, 0, 50, 0.3),      /* UMSL red */
-                0 4px 12px rgba(253, 184, 39, 0.3),   /* UMSL gold */
-                0 6px 18px rgba(120, 190, 33, 0.25);  /* accent green */
-        color: var(--umsl-dark-gray);
-        line-height: 1.6;
-        font-weight: 600;
-    }
 
-    .mini-container {
+.mini-container {
         background-color: #ffffff;
         border-radius: 0.5rem;
         font-size: 1.5rem;
@@ -207,6 +315,23 @@ body {
         font-weight: 600;
     }
 
+.filter-container{
+        background-color: #ffffff;
+        border-radius: 0.5rem;
+        font-size: 1.5rem;
+        width: auto;
+    height: 100%;
+        margin: 1rem auto;
+        padding: 1rem 1.5rem;
+        box-shadow:
+                0 2px 6px rgba(213, 0, 50, 0.3),      /* UMSL red */
+                0 4px 12px rgba(253, 184, 39, 0.3),   /* UMSL gold */
+                0 6px 18px rgba(120, 190, 33, 0.25);  /* accent green */
+
+
+
+}
+
 
     iframe {
         width: 100%;
@@ -221,6 +346,7 @@ body {
         border-right: 6px solid var(--umsl-gold);
         border-radius: 8px;
         background-color: #fff;
+        width: 100%;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 .plant-list:hover {
@@ -228,11 +354,31 @@ body {
     box-shadow: 0 12px 36px rgba(59, 63, 66, 0.4);
 }
 
+.plant-title {
+    text-align: center;
+    margin: 2rem auto;
+    border: #43310b 10px solid;
+    background-color: rgba(127, 255, 149, 0.14);
+    border-left: rgba(77, 255, 148, 0.64) 50px solid;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 2rem;
+    font-weight: bold;
+
+}
+
+.plant-title:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 36px rgba(59, 63, 66, 0.4);
+
+}
+
 .plant-details {
     border-radius: 8px;
     background-color: #ffffff;
     padding: 1rem;
-    width: 100%;
+    width: auto;
+    height: auto;
     margin: 1rem auto;
 }
 .plant-tag-container {
