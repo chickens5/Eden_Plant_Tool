@@ -1,15 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.dd0b335f.css",
-    "main.js": "/static/js/main.317ea628.js",
-    "static/media/cover.gif": "/static/media/cover.1851ca03a121e16b8f3f.gif",
-    "static/media/eden-logo.svg": "/static/media/eden-logo.c23fa45e2af46459ef64.svg",
+    "main.css": "/static/css/main.9893ef54.css",
+    "main.js": "/static/js/main.f6a7af6d.js",
+    "static/media/eden-logo.svg": "/static/media/eden-logo.526192cde6915dc1e5c8b2d69b8e36f7.svg",
     "index.html": "/index.html",
-    "main.dd0b335f.css.map": "/static/css/main.dd0b335f.css.map",
-    "main.317ea628.js.map": "/static/js/main.317ea628.js.map"
+    "main.9893ef54.css.map": "/static/css/main.9893ef54.css.map",
+    "main.f6a7af6d.js.map": "/static/js/main.f6a7af6d.js.map"
   },
   "entrypoints": [
-    "static/css/main.dd0b335f.css",
-    "static/js/main.317ea628.js"
+    "static/css/main.9893ef54.css",
+    "static/js/main.f6a7af6d.js"
   ]
 }
