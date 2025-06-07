@@ -15,22 +15,6 @@ body {
     background-blend-mode: overlay;
     background-attachment: fixed;
 }
-.overlay {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 30vh;
-    z-index: 100;
-
-    background: rgb(255, 255, 255);
-    background: linear-gradient(
-            0deg,
-            rgba(255, 255, 255, 1) 75%,
-            rgba(255, 255, 255, 0.9) 80%,
-            rgba(255, 255, 255, 0.25) 95%,
-            rgba(255, 255, 255, 0) 100%
-    );
-}
 
 .title-text {
     font-family: "Yanone Kaffeesatz";
@@ -69,118 +53,6 @@ body {
 }
 
 
-.bg-vid {
-    position: absolute;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-    width: 100%;
-    height: 125rem;
-    z-index: -1;
-}
-
-.animated-bg {
-    position: absolute;
-    inset: 0;
-    z-index: -10;
-    background-image: url('./eden-logo.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    animation: float-bg 10s ease-in-out infinite;
-    opacity: 0.9;
-    filter: brightness(1.05) saturate(1.1);
-}
-
-@keyframes float-bg {
-    0% {
-        transform: translateY(0px) scale(1);
-    }
-    50% {
-        transform: translateY(-10px) scale(1.02);
-    }
-    100% {
-        transform: translateY(0px) scale(1);
-    }
-}
-
-
-    h2, h3 {
-        font-size: 1.75rem;
-        font-weight: bold;
-        font-family: "Oswald", sans-serif;
-        margin-bottom: 0.75rem;
-
-    }
-
-#body-header {
-    display: flow;
-    color: white;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    border: #1a1e1c 12px solid;
-    transition: background-color 1s ease;
-}
-#body-header:hover {
-    text-decoration: none;
-    background-color: #0f3905;
-    transform: scale(1.15);
-    transition: background-color 1s ease;
-    box-shadow: 0 12px 36px rgba(59, 63, 66, 0.4);
-
-}
-
-
-
-    #intro-header {
-        display: flex;
-        color: white;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        border: #1a1e1c 8px solid;
-    }
-#intro-header:hover {
-    text-decoration: none;
-    background-color: #98bfaa;
-    transform: scale(1.05);
-    box-shadow: 0 12px 36px rgba(59, 63, 66, 0.4);
-
-}
-
-    h4, h5, h6 {
-        font-size: 1.25rem;
-        font-weight: bold;
-        font-family: "Oswald", sans-serif;
-        margin-bottom: 0.75rem;
-    }
-
-    p, li {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        font-family: "Oswald", sans-serif;
-    }
-
-    ul {
-        margin-left: 1.5rem;
-        padding-left: 0.5rem;
-    }
-
-    a {
-        text-decoration: underline;
-        color: inherit;
-        font-weight: 600;
-        background-color: rgba(0, 0, 0, 0);
-        padding: 0.1rem 0.3rem;
-        border-radius: 4px;
-    }
-
-    .embed {
-        margin-top: 1rem;
-        max-width: 100%;
-    }
-
 .page-container {
     max-width: 500rem; /* Keep all pages centered & aligned */
     margin: 0 auto;
@@ -206,9 +78,13 @@ body {
 }
 .loading-message {
     text-align: center;
+    align-self: center;
+    width: auto;
     padding: 10rem;
-    background: black;
-    font-size: 5rem;
+    border: 5px solid #78BE21FF;
+    background: rgba(0, 0, 0, 0.62);
+    font-size: 15rem;
+    height: 20rem;
     color: rgba(228, 4, 217, 0.69);
     animation: fadeIn 0.3s ease-in-out;
 }
@@ -218,11 +94,54 @@ body {
     to { opacity: 1; }
 }
 
+#intro-header {
+    font-family: "Yanone Kaffeesatz";
+    font-size: 2rem;
+    background-color: #ebffdb;
+    border-bottom-width: thick;
+    border-bottom-style: solid;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    margin-bottom: 2rem;
+    width: auto;
+}
+#intro-header:hover {
+    text-decoration: none;
+    background-color: #caffc8;
+    font-size: 2.35rem;
+    transform: scale(1.05);
+    height: 5rem;
+    box-shadow: 0 12px 36px rgba(59, 63, 66, 0.4);
+
+}
+
+#body-header {
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-family: "Yanone Kaffeesatz";
+    width: auto;
+    align-self: center;
+    font-size: 1.5rem;
+    border: #1a1e1c 6px solid;
+    transition: background-color 1s ease;
+}
+#body-header:hover {
+    background-color: rgba(243, 241, 125, 0.91);
+    height: 5rem;
+    color: #1a1e1c;
+    width: auto;
+    transition: background-color 3s ease, color 1s ease;
+    box-shadow: 12px 12px 12px rgb(255, 253, 218);
+
+}
 
 .app-container {
     background: rgb(251, 156, 156);
     align-items: center;
-    width: 100%;
+    width: auto;
     border-radius: 1rem;
     border-left-color: rgb(0, 255, 155);
     text-align: center;
@@ -247,7 +166,7 @@ body {
 .intro-container {
     background: #5b654e;
     align-items: center;
-    width: 65%;
+    width: 100%;
     height: auto;
     border-radius: 1rem;
     box-shadow: -3.3px 2px 12px rgb(190, 230, 49); /* UMSL dark gray as shadow */
@@ -285,6 +204,7 @@ body {
         box-shadow: 0 8px 24px rgba(59, 63, 66, 0.3); /* UMSL dark gray as shadow */
         text-align: center;
         margin: 2rem auto;
+        width: 65%;
         padding: 1.5rem;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         font-size: 2rem;
@@ -306,51 +226,20 @@ body {
         margin: 1rem auto;
         padding: 1rem 1.5rem;
         text-align: center;
-        box-shadow:
-                0 2px 6px rgba(213, 0, 50, 0.3),      /* UMSL red */
-                0 4px 12px rgba(253, 184, 39, 0.3),   /* UMSL gold */
-                0 6px 18px rgba(120, 190, 33, 0.25);  /* accent green */
-        color: var(--umsl-dark-gray);
         line-height: 1.6;
         font-weight: 600;
     }
 
-.filter-container{
-        background-color: #ffffff;
-        border-radius: 0.5rem;
-        font-size: 1.5rem;
-        width: auto;
-    height: 100%;
-        margin: 1rem auto;
-        padding: 1rem 1.5rem;
-        box-shadow:
-                0 2px 6px rgba(213, 0, 50, 0.3),      /* UMSL red */
-                0 4px 12px rgba(253, 184, 39, 0.3),   /* UMSL gold */
-                0 6px 18px rgba(120, 190, 33, 0.25);  /* accent green */
-
-
-
-}
-
-
-    iframe {
-        width: 100%;
-        height: 600px;
-        border: none;
-        border-radius: 0.5rem;
-    }
-    .plant-list {
+.plant-list {
         border: 1px solid #ccc;
         padding: 1rem;
-        border-left: 6px solid var(--umsl-gold);
-        border-right: 6px solid var(--umsl-gold);
         border-radius: 8px;
         background-color: #fff;
         width: 100%;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+
 .plant-list:hover {
-    transform: scale(1.02);
     box-shadow: 0 12px 36px rgba(59, 63, 66, 0.4);
 }
 
@@ -358,7 +247,7 @@ body {
     text-align: center;
     margin: 2rem auto;
     border: #43310b 10px solid;
-    background-color: rgba(127, 255, 149, 0.14);
+    background-color: rgba(127, 255, 149, 0.07);
     border-left: rgba(77, 255, 148, 0.64) 50px solid;
     padding: 1.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -413,10 +302,49 @@ body {
     }
     @media (max-width: 768px) {
 
+        #intro-header {
+            font-family: "Yanone Kaffeesatz";
+            background-color: #ebffdb;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            justify-content: center;
+            display: flex;
+            width: auto;
+            height: auto;
+        }
+        #intro-header:hover {
+            text-decoration: none;
+            background-color: #caffc8;
+            font-size: 1.75rem;
+            height: auto;
+            transform: scale(1.05);
+            box-shadow: 0 12px 36px rgba(59, 63, 66, 0.4);
+
+        }
+
+        #body-header {
+            width: auto;
+            border: #1a1e1c 12px solid;
+            padding: .5rem;
+            font-size: 1rem;
+            transition: background-color 1s ease;
+        }
+        #body-header:hover {
+            text-decoration: none;
+            background-color: #f8ff91;
+            transform: scale(1.1);
+            color: #1a1e1c;
+            height: auto;
+            transition: background-color 3s ease, color 1s ease;
+            box-shadow: 0 12px 36px rgba(59, 63, 66, 0.4);
+
+        }
+
         .header-container {
             padding: 1rem;
             font-size: 1.3rem;
-            width: auto;
+            width: 75%;
         }
 
         .mini-container {
@@ -425,7 +353,14 @@ body {
             width: auto;
         }
 
-
+        .plant-list {
+            border: 1px solid #ccc;
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: #fff;
+            width: 25rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
         h2 {
             font-size: 1.3rem;

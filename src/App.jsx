@@ -167,12 +167,7 @@ export default function NativePlantRecommender() {
     const clearHabitatFilter = () => {
         setSelectedFilters((prevFilters) => ({
             ...prevFilters,
-            habitat: []
-        }));
-    };
-    const clearLandPlan = () => {
-        setSelectedFilters((prevFilters) => ({
-            ...prevFilters,
+            habitat: [],
             landscape: []
         }));
     };
@@ -265,41 +260,43 @@ export default function NativePlantRecommender() {
                     <source src="/bg-vid.mp4" type="video/mp4"/>
                     Your browser does not support the video tag.
                 </video>
+                <AnimatedBackground/>
             </div>
-
-            <div className="filter-section">
-                <div className="intro-container">
-                    <h2 className='header-container'>
-                        Garden Planner
-                    </h2>
-
-                    <AnimatedBackground/>
+                  <div className="intro-container">
 
                     <h4 id = 'intro-header'>
                         Utilize the filters below to select the perfect plant or food for your green space :)
                     </h4>
-
+                      <h3 id = 'body-header'>
+                          Did you know? Native plants help us fight climate change by creating life in soil, serving as wildlife keystones,
+                          and preventing flooding while providing filtered drinking water!
+                      </h3>
+                    <div className="filter-section">
+<div className ='filter-container'>
+    <h5 className='mini-container'>
+        Sunlight:
+    </h5>
                     <div className="filter-group">
-                        <h5 className='mini-container'>
-                            Sunlight:
-                        </h5>
-
                         {filterOptions.sunlight.map(light => (
-                            <label key={light}>
+                            <label className = "filter-text" key={light}>
                                 {light === 'full_sun' ? 'Full Sun' : light === 'part_shade' ? 'Part Shade' : 'Full Shade'}
                                 <input
                                     type="checkbox"
+                                    name = 'input'
                                     checked={selectedFilters.sunlight.includes(light)}
                                     onChange={() => handleFilterChange('sunlight', light)}
                                 />
                             </label>
                         ))}
+                    </div>
 
-                        <h5 className='mini-container'>
-                            Plant Type:
-                        </h5>
-                        {filterOptions.plantType.map(plant_type => (
-                            <label className='filter-container' key={plant_type}>
+    <h5 className='mini-container'>
+        Plant Type:
+    </h5>
+
+                        <div className="filter-group">
+                            {filterOptions.plantType.map(plant_type => (
+                            <label className = "filter-text" key={plant_type}>
                                 {plant_type === 'Tree' ? 'Tree' : ''}
                                 {plant_type === 'Forb' ? 'Forb' : ''}
                                 {plant_type === 'Grass' ? 'Grass' : ''}
@@ -307,14 +304,25 @@ export default function NativePlantRecommender() {
                                 {plant_type === 'Fern' ? 'Fern' : ''}
                                 <input
                                     type="checkbox"
+                                    name = 'input'
                                     checked={selectedFilters.plantType.includes(plant_type)}
                                     onChange={() => handleFilterChange('plantType', plant_type)}
                                 />
                             </label>
                         ))}
+                    </div>
+
+
+
+                    {loading && (
+                        <div className="loading-message">
+                            <h4>
+                                Loading, please wait :)
+                            </h4>
+                        </div>
+                    )}
 
                         <div className="dropdown">
-
                             <h5 className="mini-container">
                                 Habitat/Use:
                             </h5>
@@ -335,11 +343,7 @@ export default function NativePlantRecommender() {
                                 ))}
 
                             </select>
-                            <button onClick={clearHabitatFilter} className="clear-button">
-                                Clear Filter
-                            </button>
                         </div>
-
                         <div className="dropdown">
                             <h5 className="mini-container">
                                 Landscape Plan:
@@ -357,27 +361,20 @@ export default function NativePlantRecommender() {
                                     </option>
                                 ))}
                             </select>
-                            <button onClick={clearLandPlan} className="clear-button">
-                                Clear Filter
-                            </button>
                         </div>
-
+                        <button onClick={clearHabitatFilter} className="clear-button">
+                            Clear Filter
+                        </button>
+                        </div>
                         <button className="scroll-to-results-button" onClick={() => setShowList(!showList)}>
                             {showList ? "Hide Plants" : "Show Plants"}
                         </button>
                     </div>
                 </div>
-            </div>
-            {loading && (
-                <div className="loading-message">
-                    <h4>
-                        Loading, please wait :)
-                    </h4>
-                </div>
-            )}
+
             <div className="app-container">
-                <h4 className="header-container">Recommendations: {recommendations.length}</h4>
                 <ul>
+                    <h4 className="header-container">Recommendations: {recommendations.length}</h4>
                     {showList && currentPlants.map((plant, index) => (
                         <li className="plant-list" key={index} onClick={() => showPlantDetails(plant)}>
                             <div className="plant-title">

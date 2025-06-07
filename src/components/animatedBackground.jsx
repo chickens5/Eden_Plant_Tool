@@ -38,10 +38,6 @@ export default function AnimatedBackground() {
 
     return (
         <div className="absolute inset-0 -z-10 overflow-hidden">
-            <h3 id = 'body-header'>
-                Did you know? Native plants help us fight climate change by creating life in soil, serving as wildlife keystones,
-                and preventing flooding while providing filtered drinking water!
-            </h3>
             <animated.div
                 style={{
                     transform: interpolate(
