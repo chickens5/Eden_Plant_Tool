@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.9893ef54.css",
-    "main.js": "/static/js/main.f6a7af6d.js",
+    "main.css": "/static/css/main.db71a3af.css",
+    "main.js": "/static/js/main.725bbd48.js",
     "static/media/eden-logo.svg": "/static/media/eden-logo.526192cde6915dc1e5c8b2d69b8e36f7.svg",
     "index.html": "/index.html",
-    "main.9893ef54.css.map": "/static/css/main.9893ef54.css.map",
-    "main.f6a7af6d.js.map": "/static/js/main.f6a7af6d.js.map"
+    "main.db71a3af.css.map": "/static/css/main.db71a3af.css.map",
+    "main.725bbd48.js.map": "/static/js/main.725bbd48.js.map"
   },
   "entrypoints": [
-    "static/css/main.9893ef54.css",
-    "static/js/main.f6a7af6d.js"
+    "static/css/main.db71a3af.css",
+    "static/js/main.725bbd48.js"
   ]
 }
