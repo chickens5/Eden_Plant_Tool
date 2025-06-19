@@ -1,8 +1,9 @@
 {
+  "name": "Eden_Plant_Tool",
+  "homepage": "https://chickens5.github.io/Eden_Plant_Tool/",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://chickens5.github.io/Eden_Plant_Tool/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -19,6 +20,7 @@
   },
   "dependencies": {
     "react": "^19.1.0",
+    "gh-pages": "^6.3.0",
     "react-dom": "^19.1.0",
     "react-scripts": "^5.0.1",
     "react-spring": "^10.0.1",
