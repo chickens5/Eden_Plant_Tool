@@ -70,13 +70,14 @@
     border: 1px solid #ccc;
     background-color: #fff;
     color: #333;
-    width: 100%;
-    max-width: 300px;
-    transition: border 0.3s ease;
+    width: auto;
+    height: auto;
+    transition: border 1s ease;
 }
 
-.dropdown-select:focus {
-    border-color: #0077cc;
+.dropdown-select:hover {
+    border: #0077cc 5px solid;
+    transition: border .05s ease;
     outline: none;
 }
 
@@ -104,6 +105,10 @@
     grid-template-columns: repeat(auto-fit, minmax(1rem, 3fr));
     gap: 30px;
 }
+.dropdown-group {
+    width: 100%;
+    height: 100%;
+}
 
 .filter-group input, .filter-group select, .filter-group select {
     position: absolute;
@@ -127,15 +132,6 @@ input:focus {
     border: 1px solid #ccc;
     box-shadow: 5px 2px 2px rgb(29, 255, 142);
     cursor: pointer;
-}
-.filter-group label:hover {
-    transform: scale(1.35);
-    color: #ffffff;
-    width: auto;
-    height: auto;
-    border-color: #ff00fb;
-    box-shadow: 10px 8px 6px rgb(255, 247, 180);
-    background-color: rgba(1, 69, 6, 0.55);
 }
 
 
@@ -190,15 +186,6 @@ input:focus {
         cursor: pointer;
     }
 
-    .filter-group label:hover {
-        transform: scale(1.5);
-        color: #ffffff;
-        width: auto;
-        height: auto;
-        border-color: #ff00fb;
-        box-shadow: 10px 8px 6px rgb(255, 247, 180);
-        background-color: rgba(1, 69, 6, 0.55);
-    }
 }
 
 .clear-button {

@@ -82,14 +82,11 @@ export default function NativePlantRecommender() {
 
     const scrollToTop = () => {
         window.scrollTo({
-            top: 0,
+            bottom: 50,
             left: 0,
             behavior: 'smooth' // Optional, for animated scrolling
         });
     };
-
-
-
 
     useEffect(() => {
         fetch(process.env.PUBLIC_URL + "/plant_data.json")
@@ -247,8 +244,6 @@ export default function NativePlantRecommender() {
                 </div>
             </div>
 
-
-
             <div>
                 <video
                     className="bg-vid w-full h-full object-cover"
@@ -262,6 +257,7 @@ export default function NativePlantRecommender() {
                 </video>
                 <AnimatedBackground/>
             </div>
+
                   <div className="intro-container">
 
                     <h4 id = 'intro-header'>
@@ -321,12 +317,12 @@ export default function NativePlantRecommender() {
                             </h4>
                         </div>
                     )}
+    <div className = 'dropdown-group'>
 
-                        <div className="dropdown">
                             <h5 className="mini-container">
                                 Habitat/Use:
                             </h5>
-
+        <section className="dropdown">
                             <select
                                 value={selectedFilters.habitat[0] || 'None'}
                                 onChange={(e) => handleFilterChange('habitat', e.target.value)}
@@ -343,11 +339,11 @@ export default function NativePlantRecommender() {
                                 ))}
 
                             </select>
-                        </div>
-                        <div className="dropdown">
+                        </section>
                             <h5 className="mini-container">
                                 Landscape Plan:
                             </h5>
+        <section className="dropdown">
                             <select
                                 value={selectedFilters.landscape[0] || 'None'}
                                 onChange={(e) => handleFilterChange('landscape', e.target.value)}
@@ -361,7 +357,7 @@ export default function NativePlantRecommender() {
                                     </option>
                                 ))}
                             </select>
-                        </div>
+                        </section>
                         <button onClick={clearHabitatFilter} className="clear-button">
                             Clear Filter
                         </button>
@@ -371,6 +367,7 @@ export default function NativePlantRecommender() {
                         </button>
                     </div>
                 </div>
+                  </div>
 
             <div className="app-container">
                 <ul>
