@@ -18,6 +18,8 @@ import React, { useState, useEffect, useRef } from "react";
 import './styles/global.css';
 import './styles/components.css';
 import AnimatedBackground from './components/animatedBackground.jsx';
+import AnimatedIntro from './components/animatedIntro.jsx';
+import CircularText from './components/circularText.jsx';
 
 
 export default function NativePlantRecommender() {
@@ -225,6 +227,13 @@ export default function NativePlantRecommender() {
 
     return (
         <div className="page-container" ref={pageContainerRef} onScroll={handleScroll}>
+            <CircularText
+                text="Return--To--Eden--"
+                onHover="speedUp"
+                spinDuration={30}
+                className="custom-class"
+
+            />
             <div className="title-text">
                 <div className="wrapper">
                     <div id="E" className="letter">E</div>
@@ -245,18 +254,33 @@ export default function NativePlantRecommender() {
             </div>
 
             <div>
-                <AnimatedBackground/>
+
             </div>
 
-                  <div className="intro-container">
+            <AnimatedIntro
+                distance={150}
+                direction="vertical"
+                reverse={false}
+                duration={1.2}
+                ease="bounce.out"
+                initialOpacity={0.2}
+                animateOpacity
+                scale={3}
+                threshold={0.2}
+                delay={0.3}
+            >
+                <h4 id = 'intro-header'>
+                    Welcome to the EdenPlant Tool!
+                </h4>
+                <h3 id = 'body-header'>
+                    Did you know? Native plants help us fight climate change by creating life in soil, serving as wildlife keystones,
+                    and preventing flooding while providing filtered drinking water!
+                </h3>
+            </AnimatedIntro>
 
-                    <h4 id = 'intro-header'>
-                        Utilize the filters below to select the perfect plant or food for your green space :)
-                    </h4>
-                      <h3 id = 'body-header'>
-                          Did you know? Native plants help us fight climate change by creating life in soil, serving as wildlife keystones,
-                          and preventing flooding while providing filtered drinking water!
-                      </h3>
+                  <div className="intro-container">
+                      <AnimatedBackground/>
+                      Utilize the filters below to select the perfect plant or food for your green space :)
                     <div className="filter-section">
 <div className ='filter-container'>
     <h5 className='mini-container'>

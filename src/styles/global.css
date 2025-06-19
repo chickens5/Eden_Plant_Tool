@@ -103,8 +103,9 @@ body {
     text-align: center;
     justify-content: center;
     display: flex;
-    margin-bottom: 2rem;
-    width: auto;
+    margin: 1rem auto;
+    padding: 1rem 1.5rem;
+    width: 50%;
 }
 #intro-header:hover {
     text-decoration: none;

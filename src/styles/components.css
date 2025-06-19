@@ -52,7 +52,23 @@
 }
 
 
+.clear-button {
+    margin-top: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.3rem;
+}
 
+.clear-button:hover {
+    background-color: rgba(97, 2, 2, 0.8);
+    box-shadow: 20px 10px 10px rgba(0, 0, 0, 0.3);
+    transition: color 3s ease;
+
+}
 
 .dropdown {
     margin: 1rem 0;
@@ -81,6 +97,13 @@
     outline: none;
 }
 
+.checkbox {
+    position: absolute;
+}
+.checkbox:after {
+    background: #0077cc;
+    display: block;
+}
 .filter-container{
     background-color: rgba(255, 255, 255, 0.55);
     border-radius: 0.5rem;
@@ -117,6 +140,8 @@
     width: 45px;
     background-color: #eee;
 }
+
+
 input:focus {
     outline: none;
     color: #73ff00;
@@ -133,6 +158,8 @@ input:focus {
     box-shadow: 5px 2px 2px rgb(29, 255, 142);
     cursor: pointer;
 }
+
+
 
 
 @media (max-width: 768px) {
@@ -188,22 +215,6 @@ input:focus {
 
 }
 
-.clear-button {
-    margin-top: 0.5rem;
-    padding: 0.4rem 0.8rem;
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1.3rem;
-}
-
-.clear-button:hover {
-    background-color: rgba(97, 2, 2, 0.8);
-    box-shadow: 20px 10px 10px rgba(0, 0, 0, 0.3);
-
-}
 
 .scroll-to-results-button {
     padding: 10px 15px;
