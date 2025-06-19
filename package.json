@@ -2,8 +2,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://chickens5.github.io/Eden_Plant_Tool/",
   "scripts": {
-    "homepage": "https://chickens5.github.io/Eden_Plant_Tool/",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "deploy": "gh-pages -d build",
