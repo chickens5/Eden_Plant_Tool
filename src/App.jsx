@@ -252,7 +252,7 @@ export default function NativePlantRecommender() {
                     muted
                     playsInline
                 >
-                    <source src="/bg-vid.mp4" type="video/mp4"/>
+                    <source src="/public/bg-vid.mp4" type="video/mp4"/>
                     Your browser does not support the video tag.
                 </video>
                 <AnimatedBackground/>
