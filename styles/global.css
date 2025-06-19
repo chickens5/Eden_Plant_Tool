@@ -1,0 +1,566 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap");
+@import "tailwindcss";
+
+body {
+    margin: 0;
+    padding: 0;
+    background: url("./eden-logo.svg");
+    font-family: 'Montserrat Black', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    background-attachment: fixed;
+}
+
+.title-text {
+    font-family: "Yanone Kaffeesatz";
+    font-size: 100px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    width: auto;
+    color: #eeeeee;
+    user-select: none;
+
+    .wrapper {
+        padding-left: 20px;
+        padding-right: 20px;
+
+        padding-top: 20px;
+        .letter {
+            transition: ease-out 1s;
+            transform: translateY(40%);
+        }
+        .shadow {
+            transform: scale(1, -1);
+            color: #ff0000;
+            transition: ease-in 5s, ease-out 5s;
+        }
+        &:hover {
+            .letter {
+                transform: translateY(-200%);
+            }
+            .shadow {
+                opacity: 0;
+                transform: translateY(200%);
+            }
+        }
+    }
+}
+
+
+.page-container {
+    max-width: 500rem; /* Keep all pages centered & aligned */
+    margin: 0 auto;
+    width: auto;
+    outline: black solid 3.3px;
+    padding: 35px;
+}
+
+.title-container{
+    margin: 1rem auto;
+    font-size: 2.5rem;
+    height: auto;
+    font-weight: bolder;
+    color: #eeeeee;
+    outline: rgba(0, 0, 0, 0.73) solid 3.3px;
+    background-color: rgba(54, 78, 82, 0.18);
+    border-left: 6px solid #78BE21FF;
+    border-right: 6px solid #78BE21FF;
+    border-radius: 1rem;
+    border-bottom: #1a1e1c 1px solid;
+    box-shadow: rgba(0, 247, 255, 0.67) 5px 10px 1px;
+    padding: 5px;
+}
+.loading-message {
+    text-align: center;
+    align-self: center;
+    width: auto;
+    padding: 2rem;
+    border: 5px solid #78BE21FF;
+    background: rgba(0, 0, 0, 0.62);
+    font-size: 3.5rem;
+    height: auto;
+    color: rgba(228, 4, 217, 0.69);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#intro-header {
+    font-family: "Yanone Kaffeesatz";
+    font-size: 2rem;
+    background-color: #ebffdb;
+    border-bottom-width: thick;
+    border-bottom-style: solid;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    margin-bottom: 2rem;
+    width: auto;
+}
+#intro-header:hover {
+    text-decoration: none;
+    background-color: #caffc8;
+    font-size: 2.35rem;
+    transition: ease-in 3.5s;
+    transform: scale(1.05);
+    height: auto;
+    box-shadow: 0 12px 36px rgba(59, 63, 66, 0.4);
+
+}
+
+#body-header {
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-family: "Yanone Kaffeesatz";
+    width: auto;
+    align-self: center;
+    font-size: 1.5rem;
+    border: #1a1e1c 6px solid;
+    transition: background-color 1s ease;
+}
+#body-header:hover {
+    background-color: rgba(243, 241, 125, 0.91);
+    color: #1a1e1c;
+    width: auto;
+    box-shadow: 12px 12px 12px rgb(255, 253, 218);
+
+}
+
+.app-container {
+    background: rgb(251, 156, 156);
+    align-items: center;
+    width: auto;
+    border-radius: 1rem;
+    border-left-color: rgb(0, 255, 155);
+    text-align: center;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.results-list   {
+    height: 75%;
+    width: 75%;
+    background: #fbd872;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 8px;
+    outline: black solid 15px;
+    text-align: center;
+}
+
+.intro-container {
+    background: #5b654e;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: -3.3px 2px 12px rgb(190, 230, 49); /* UMSL dark gray as shadow */
+    text-align: center;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.content-container {
+    background: #76232f;
+    max-width: 900px;
+    align-items: center;
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: -3.3px 2px 12px rgb(255, 183, 0); /* UMSL dark gray as shadow */
+    text-align: center;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+.header-container {
+        background-color: rgb(246, 244, 217);
+        border-left: 16px solid #ee00ff;
+        border-right: 16px solid #000000;
+        border-top: 16px solid #000000;
+        border-bottom: 16px solid #df0aff;
+        border-radius: 1rem;
+        box-shadow: 0 8px 24px rgba(59, 63, 66, 0.3); /* UMSL dark gray as shadow */
+        text-align: center;
+        margin: 2rem auto;
+        width: 65%;
+        padding: 1.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+.header-container:hover {
+        transform: scale(1.30);
+        box-shadow: 0 12px 36px rgba(59, 63, 66, 0.4);
+    }
+
+.mini-container {
+        background-color: #ffffff;
+        border-radius: 0.5rem;
+        font-size: 1.5rem;
+        width: 50%;
+        margin: 1rem auto;
+        padding: 1rem 1.5rem;
+        text-align: center;
+        line-height: 1.6;
+        font-weight: 600;
+    }
+
+.plant-list {
+        border: 1px solid #ccc;
+        padding: 1rem;
+        border-radius: 8px;
+        background-color: #fff;
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+.plant-list:hover {
+    box-shadow: 0 12px 36px rgba(59, 63, 66, 0.4);
+}
+
+.plant-title {
+    text-align: center;
+    margin: 2rem auto;
+    border: #43310b 10px solid;
+    background-color: rgba(127, 255, 149, 0.07);
+    border-left: rgba(77, 255, 148, 0.64) 50px solid;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 2rem;
+    font-weight: bold;
+
+}
+
+.plant-title:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 36px rgba(59, 63, 66, 0.4);
+
+}
+
+.plant-details {
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 1rem;
+    width: auto;
+    height: auto;
+    margin: 1rem auto;
+}
+.plant-tag-container {
+    display: contents;
+    margin: 1.5rem auto;
+    border: 20px solid rgb(120, 190, 33);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow:
+            0 2px 6px rgba(213, 0, 50, 0.3),      /* UMSL red */
+            0 4px 12px rgba(253, 184, 39, 0.3),   /* UMSL gold */
+            0 6px 18px rgba(120, 190, 33, 0.25);  /* accent green */
+    color: var(--umsl-dark-gray);
+    line-height: 1.6;
+}
+
+
+    .plant-image-container
+    {
+        display: flex;
+        border: 20px solid rgb(120, 190, 33);
+        padding: 10px;
+        justify-content: center;
+        margin-top: 10px;
+
+        .plant-image {
+            width: 50%;
+            max-height: 120%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+    }
+    @media (max-width: 768px) {
+
+        #intro-header {
+            font-family: "Yanone Kaffeesatz";
+            background-color: #ebffdb;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            justify-content: center;
+            display: flex;
+        }
+        #intro-header:hover {
+            text-decoration: none;
+            background-color: #caffc8;
+            font-size: 1.52rem;
+            height: auto;
+            display: flex;
+            transition: border .05s ease;
+            transform: scale(1.05);
+            box-shadow: 0 12px 36px rgba(59, 63, 66, 0.4);
+
+        }
+
+        #body-header {
+            width: auto;
+            border: #1a1e1c 12px solid;
+            padding: .5rem;
+            font-size: 1rem;
+            transition: background-color 1s ease;
+        }
+        #body-header:hover {
+            text-decoration: none;
+            background-color: #f8ff91;
+            transform: scale(1.1);
+            color: #1a1e1c;
+            height: auto;
+            transition: border .05s ease;
+            box-shadow: 0 12px 36px rgba(59, 63, 66, 0.4);
+
+        }
+
+        .header-container {
+            padding: 1rem;
+            font-size: 1.3rem;
+            width: 75%;
+        }
+
+        .mini-container {
+            font-size: 1.2rem;
+            padding: 0.55rem .8rem;
+            width: auto;
+        }
+
+        .plant-list {
+            border: 1px solid #ccc;
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: #fff;
+            width: 25rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p, li, h4, h5 {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .insta-text-container {
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+        }
+
+        iframe {
+            height: 350px;
+        }
+
+        ul {
+            padding-left: 1rem;
+            margin-left: 0.5rem;
+        }
+    }
+
+
+.diods {
+    position: relative;
+    top: -2em;
+    display: flex;
+    gap: 2em;
+}
+
+.diod {
+    width: 1em;
+    height: 1em;
+    background-color: #567676;
+    border-radius: 99em;
+    box-shadow: inset -1px -2px 6px 2px rgba(0, 0, 0, 0.6), inset -2px -3px 6px 2px rgba(0, 0, 0, 0.5), inset 1px 2px 4px rgba(0, 0, 0, 0.6), inset 0px 1px 2px rgba(0, 0, 0, 0.8), inset 0 1px 2px 1px rgba(0, 0, 0, 0.4), 0 1px 1px 1px rgba(179, 230, 199, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.diod__active {
+    background-color: #4dff94;
+    box-shadow: inset -1px -2px 6px 2px rgba(0, 0, 0, 0.6), inset -2px -3px 6px 2px rgba(0, 0, 0, 0.5), inset 1px 2px 4px rgba(0, 0, 0, 0.6), inset 0px 1px 2px rgba(0, 0, 0, 0.8), inset 0 1px 2px 1px rgba(0, 0, 0, 0.4), 0 1px 1px 1px rgba(179, 230, 199, 0.1), 0 1px 12px 1px rgba(64, 191, 115, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.diod__active + .diod {
+    background: linear-gradient(to right, #5cd68d, #567676 45%);
+}
+/* BUTTONS & PAGINATION */
+
+.pagination-button-icon
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.pagbuttons-container {
+    display: flex;
+    font-weight: bolder;
+    background-color: rgba(255, 106, 20, 0.85);
+    border-radius: 8px;
+    box-shadow:  1px 2px 3px rgb(120, 190, 33);
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.pagination-button {
+    background: rgb(163, 83, 130);
+    color: white;
+    border: #1a1e1c 5px solid;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.pageNum-button {
+        background-color: #e0e0e0;
+        color: #666;
+        cursor: not-allowed;
+        border: none;
+        padding: 0.5rem 1rem;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+
+}
+
+.pagination-button:hover {
+    background-color: rgb(255, 0, 37); /* Lighter Red */
+    transform: translateY(-2px);
+}
+
+.pagination-button.active {
+    background-color: #f1c40f; /* UMSL Gold */
+    color: #990000;
+}
+
+.pagination-button:disabled {
+    background-color: #e0e0e0;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.btn:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    border-radius: 3.9em;
+    box-shadow: -50px -102px 40px -120px #40bf73, -6px -40px 40px -40px rgba(255, 255, 255, 0.1), -3px -10px 20px -16px rgba(255, 255, 255, 0.1), 6px 40px 40px -32px rgba(0, 0, 0, 0.4), 3px 10px 20px -10px rgba(0, 0, 0, 0.2);
+    filter: blur(2px);
+}
+
+.btn {
+    --btn-inner: hsla(144deg 10% 22% / 35%);
+    --btn-outer: hsla(144deg 10% 22% / 25%);
+    --btn-glow-inner: hsla(144deg 83% 100% / 0%);
+    --btn-glow-outer: hsla(144deg 83% 100% / 0%);
+    --btn-reflex-bottom-1: 0%;
+    --btn-reflex-bottom-2: 0%;
+    --btn-reflex-top-1: 0%;
+    --btn-reflex-top-2: 0%;
+    position: relative;
+    z-index: 1;
+    background: radial-gradient(ellipse 140% 70% at 50% 100%, hsla(144deg 100% 70%/var(--btn-reflex-bottom-1)) 0%, hsla(144deg 100% 70%/var(--btn-reflex-bottom-2)) 30%, rgba(102, 255, 163, 0) 100%), radial-gradient(ellipse 140% 70% at 50% 0%, hsla(144deg 100% 70%/var(--btn-reflex-top-1)) 0%, hsla(144deg 100% 70%/var(--btn-reflex-top-2)) 30%, rgba(102, 255, 163, 0) 100%), radial-gradient(ellipse at 50% 10%, var(--btn-glow-inner), var(--btn-glow-outer)), radial-gradient(var(--btn-inner), var(--btn-outer));
+    border: none;
+    font-size: 24px;
+    margin: 20px;
+    width: 100%;
+    height: 60px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: rgba(232, 247, 238, 0.7);
+    border-radius: 99em;
+    text-shadow: 0 -1px rgba(38, 115, 69, 0.4);
+    box-shadow: inset 0 4px 1px -3px rgba(255, 255, 255, 0.1), inset 0 17px 2px -16px rgba(153, 255, 194, 0), inset 0 4px 8px 5px rgba(9, 11, 10, 0.16), 0 2px 0 1px #1a1e1c, 0 3px 0 -1px rgba(102, 204, 143, 0), inset 0 -1px 2px 1px rgba(255, 255, 255, 0), 0 1px 2px rgba(255, 255, 255, 0), 0 2px 0 rgba(255, 255, 255, 0), 0 4px 0 0 rgba(0, 255, 102, 0), 0 2px 0 3px rgba(0, 0, 0, 0.9), 0 3px 0 3px rgba(255, 255, 255, 0.04);
+    transition: --btn-glow-inner 200ms, --btn-inner 200ms, --btn-outer 200ms, --btn-reflex-bottom-1 500ms, --btn-reflex-bottom-2 500ms, --btn-reflex-top-1 500ms, --btn-reflex-top-2 500ms, box-shadow 200ms, text-shadow 400ms, transform 200ms;
+}
+
+.btn-filters {
+    --btn-inner: hsla(144deg 10% 22% / 35%);
+    --btn-outer: hsla(144deg 10% 22% / 25%);
+    --btn-glow-inner: hsla(144deg 83% 100% / 0%);
+    --btn-glow-outer: hsla(144deg 83% 100% / 0%);
+    --btn-reflex-bottom-1: 0%;
+    --btn-reflex-bottom-2: 0%;
+    --btn-reflex-top-1: 0%;
+    --btn-reflex-top-2: 0%;
+    position: relative;
+    z-index: 1;
+    background: radial-gradient(ellipse 140% 70% at 50% 100%, hsla(144deg 100% 70%/var(--btn-reflex-bottom-1)) 0%, hsla(144deg 100% 70%/var(--btn-reflex-bottom-2)) 30%, rgba(102, 255, 163, 0) 100%), radial-gradient(ellipse 140% 70% at 50% 0%, hsla(144deg 100% 70%/var(--btn-reflex-top-1)) 0%, hsla(144deg 100% 70%/var(--btn-reflex-top-2)) 30%, rgba(102, 255, 163, 0) 100%), radial-gradient(ellipse at 50% 10%, var(--btn-glow-inner), var(--btn-glow-outer)), radial-gradient(var(--btn-inner), var(--btn-outer));
+    border: none;
+    font-size: 24px;
+    width: 100%;
+    height: 100%;
+    font-family: "Raleway", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: rgba(232, 247, 238, 0.7);
+    border-radius: 99em;
+    text-shadow: 0 -1px rgba(38, 115, 69, 0.4);
+    box-shadow: inset 0 4px 1px -3px rgba(255, 255, 255, 0.1), inset 0 17px 2px -16px rgba(153, 255, 194, 0), inset 0 4px 8px 5px rgba(9, 11, 10, 0.16), 0 2px 0 1px #1a1e1c, 0 3px 0 -1px rgba(102, 204, 143, 0), inset 0 -1px 2px 1px rgba(255, 255, 255, 0), 0 1px 2px rgba(255, 255, 255, 0), 0 2px 0 rgba(255, 255, 255, 0), 0 4px 0 0 rgba(0, 255, 102, 0), 0 2px 0 3px rgba(0, 0, 0, 0.9), 0 3px 0 3px rgba(255, 255, 255, 0.04);
+    transition: --btn-glow-inner 200ms, --btn-inner 200ms, --btn-outer 200ms, --btn-reflex-bottom-1 500ms, --btn-reflex-bottom-2 500ms, --btn-reflex-top-1 500ms, --btn-reflex-top-2 500ms, box-shadow 200ms, text-shadow 400ms, transform 200ms;
+}
+.btn:hover {
+    --btn-glow-inner: hsla(144deg 83% 100% / 20%);
+    --btn-inner: hsla(144deg 50% 50% / 100%);
+    --btn-outer: hsla(144deg 83% 50% / 100%);
+    cursor: pointer;
+    color: white;
+    box-shadow: inset 0 -1px 2px 1px rgba(255, 255, 255, 0.3), inset 0 17px 2px -16px rgba(153, 255, 194, 0), inset 0 0 24px rgba(26, 77, 46, 0.3), 0 3px 0 1px rgba(68, 238, 136, 0.7), 0 3px 0 -1px rgba(102, 204, 143, 0), inset 0 -1px 2px 1px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(255, 255, 255, 0.8), 0 2px 16px rgba(255, 255, 255, 0.15), 0 4px 32px 2px rgba(0, 255, 102, 0.25), 0 3px 0 3px rgba(0, 0, 0, 0.8), 0 3px 0 4px rgba(38, 115, 69, 0.4);
+    text-shadow: 0 -1px rgb(255, 255, 255), 0 0 4px rgb(255, 255, 255);
+    transform: translateY(-1px);
+    transition: --btn-glow-inner 200ms, --btn-inner 200ms, --btn-outer 500ms, --btn-reflex-bottom-1 500ms, --btn-reflex-bottom-2 500ms, --btn-reflex-top-1 500ms, --btn-reflex-top-2 500ms, box-shadow 200ms, text-shadow 400ms, transform 200ms;
+}
+.btn:active {
+    transform: translateY(2px);
+    box-shadow: inset 0 -1px 2px 1px rgba(255, 255, 255, 0.3), inset 0 17px 2px -16px rgba(153, 255, 194, 0), inset 0 0 24px rgba(26, 77, 46, 0.3), 0 0px 0 1px rgba(68, 238, 136, 0.7), 0 1px 0 -1px rgba(102, 204, 143, 0), inset 0 -1px 2px 1px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(255, 255, 255, 0.8), 0 2px 16px rgba(255, 255, 255, 0.2), 0 4px 32px 2px rgba(0, 255, 102, 0.3), 0 0px 0 3px rgba(0, 0, 0, 0.5), 0 0px 1px 4px rgba(38, 115, 69, 0.4);
+    transition: --btn-glow-inner 200ms, --btn-inner 200ms, --btn-outer 500ms, --btn-reflex-bottom-1 500ms, --btn-reflex-bottom-2 500ms, --btn-reflex-top-1 500ms, --btn-reflex-top-2 500ms, box-shadow 200ms, text-shadow 400ms, transform 200ms;
+}
+.btn:has(+ .btn:hover) {
+    --btn-inner: hsla(144deg 10% 22% / 35%);
+    --btn-outer: hsla(144deg 10% 22% / 25%);
+    --btn-glow-inner: hsla(144deg 83% 100% / 0%);
+    --btn-glow-outer: hsla(144deg 83% 100% / 0%);
+    --btn-reflex-bottom-1: 15%;
+    --btn-reflex-bottom-2: 7%;
+    box-shadow: inset 0 4px 1px -3px rgba(255, 255, 255, 0.05), inset 0 17px 2px -16px rgba(153, 255, 194, 0), inset 0 4px 8px 5px rgba(9, 11, 10, 0.12), 0 2px 0 1px rgba(31, 51, 39, 0.7), 0 3px 0 -1px rgba(102, 204, 143, 0.5), inset 0 -7px 2px -6px rgba(153, 255, 194, 0.5), 0 0 8px rgba(255, 255, 255, 0), 0 2px 2px -3px rgba(153, 255, 194, 0.5), 0 8px 8px -6px rgba(0, 255, 102, 0.14), 0 2px 0 3px rgba(0, 0, 0, 0.9), 0 3px 0 3px rgba(22, 233, 106, 0.08);
+}
+.btn:hover + .btn {
+    --btn-inner: hsla(144deg 10% 22% / 35%);
+    --btn-outer: hsla(144deg 10% 22% / 25%);
+    --btn-glow-inner: hsla(144deg 83% 100% / 0%);
+    --btn-glow-outer: hsla(144deg 83% 100% / 0%);
+    --btn-reflex-top-1: 15%;
+    --btn-reflex-top-2: 7%;
+    box-shadow: inset 0 3px 2px -3px rgba(153, 255, 194, 0.5), inset 0 17px 2px -16px rgba(153, 255, 194, 0.2), inset 0 4px 8px 5px rgba(9, 11, 10, 0.06), 0 2px 0 1px #1a1e1c, 0 3px 0 -1px rgba(102, 204, 143, 0), inset 0 -1px 2px 1px rgba(255, 255, 255, 0), 0 1px 2px rgba(255, 255, 255, 0), 0 2px 0 rgba(255, 255, 255, 0), 0 4px 0 0 rgba(0, 255, 102, 0), 0 2px 0 3px rgba(0, 0, 0, 0.9), 0 3px 0 3px rgba(255, 255, 255, 0.04);
+}
