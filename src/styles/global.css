@@ -4,7 +4,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: url("./eden-logo.svg");
+    background: url("./videos/cover.gif");
     font-family: 'Montserrat Black', sans-serif;
     min-height: 100vh;
     display: flex;

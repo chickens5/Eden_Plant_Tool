@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/Eden_Plant_Tool/static/css/main.acbd7da4.css",
-    "main.js": "/Eden_Plant_Tool/static/js/main.9019b997.js",
+    "main.css": "/Eden_Plant_Tool/static/css/main.7b04ef95.css",
+    "main.js": "/Eden_Plant_Tool/static/js/main.41edad4f.js",
+    "static/media/cover.gif": "/Eden_Plant_Tool/static/media/cover.1851ca03a121e16b8f3f.gif",
     "static/media/eden-logo.svg": "/Eden_Plant_Tool/static/media/eden-logo.526192cde6915dc1e5c8b2d69b8e36f7.svg",
     "index.html": "/Eden_Plant_Tool/index.html",
-    "main.acbd7da4.css.map": "/Eden_Plant_Tool/static/css/main.acbd7da4.css.map",
-    "main.9019b997.js.map": "/Eden_Plant_Tool/static/js/main.9019b997.js.map"
+    "main.7b04ef95.css.map": "/Eden_Plant_Tool/static/css/main.7b04ef95.css.map",
+    "main.41edad4f.js.map": "/Eden_Plant_Tool/static/js/main.41edad4f.js.map"
   },
   "entrypoints": [
-    "static/css/main.acbd7da4.css",
-    "static/js/main.9019b997.js"
+    "static/css/main.7b04ef95.css",
+    "static/js/main.41edad4f.js"
   ]
 }

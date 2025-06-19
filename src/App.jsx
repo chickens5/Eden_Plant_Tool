@@ -245,16 +245,6 @@ export default function NativePlantRecommender() {
             </div>
 
             <div>
-                <video
-                    className="bg-vid w-full h-full object-cover"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                >
-                    <source src="/public/bg-vid.mp4" type="video/mp4"/>
-                    Your browser does not support the video tag.
-                </video>
                 <AnimatedBackground/>
             </div>
 

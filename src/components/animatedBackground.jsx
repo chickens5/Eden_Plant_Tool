@@ -47,7 +47,8 @@ export default function AnimatedBackground() {
                     ),
                     width: '100%',
                     height: '100%',
-                    opacity: 1.2,
+                    backgroundColor: 'black',
+                    opacity: 2.2,
                     filter: 'brightness(1.5) sepia(0.3) hue-rotate(10deg) saturate(1.9)'
                 }}
             >
