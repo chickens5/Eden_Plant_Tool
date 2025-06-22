@@ -20,6 +20,8 @@ import './styles/components.css';
 import AnimatedBackground from './components/animatedBackground.jsx';
 import AnimatedIntro from './components/animatedIntro.jsx';
 import CircularText from './components/circularText.jsx';
+import BackgroundVideo from './components/backgroundVideo.jsx';
+import EdenCursor from './components/EdenCursor.jsx';
 
 
 export default function NativePlantRecommender() {
@@ -227,6 +229,10 @@ export default function NativePlantRecommender() {
 
     return (
         <div className="page-container" ref={pageContainerRef} onScroll={handleScroll}>
+            <BackgroundVideo>
+                autoplay
+            </BackgroundVideo>
+            <div className = "title-container">
             <CircularText
                 text="Return--To--Eden--"
                 onHover="speedUp"
@@ -234,6 +240,8 @@ export default function NativePlantRecommender() {
                 className="custom-class"
 
             />
+            <AnimatedBackground/>
+
             <div className="title-text">
                 <div className="wrapper">
                     <div id="E" className="letter">E</div>
@@ -252,9 +260,6 @@ export default function NativePlantRecommender() {
                     <div className="shadow">N</div>
                 </div>
             </div>
-
-            <div>
-
             </div>
 
             <AnimatedIntro
@@ -269,6 +274,7 @@ export default function NativePlantRecommender() {
                 threshold={0.2}
                 delay={0.3}
             >
+
                 <h4 id = 'intro-header'>
                     Welcome to the EdenPlant Tool!
                 </h4>
@@ -279,10 +285,27 @@ export default function NativePlantRecommender() {
             </AnimatedIntro>
 
                   <div className="intro-container">
-                      <AnimatedBackground/>
                       Utilize the filters below to select the perfect plant or food for your green space :)
                     <div className="filter-section">
 <div className ='filter-container'>
+    <EdenCursor
+        blobType="circle"
+        fillColor="#5227FF"
+        trailCount={3}
+        sizes={[60, 125, 75]}
+        innerSizes={[20, 35, 25]}
+        innerColor="rgba(255,255,255,0.8)"
+        opacities={[0.6, 0.6, 0.6]}
+        shadowColor="rgba(0,0,0,0.75)"
+        shadowBlur={5}
+        shadowOffsetX={10}
+        shadowOffsetY={10}
+        filterStdDeviation={30}
+        useFilter={true}
+        fastDuration={0.1}
+        slowDuration={0.5}
+        zIndex={100}
+    />
     <h5 className='mini-container'>
         Sunlight:
     </h5>

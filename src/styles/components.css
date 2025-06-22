@@ -12,13 +12,13 @@
     filter: brightness(1.05) saturate(1.1);
 }
 
-.bg-vid {
-    position: absolute;
+#bg-video {
+    position: fixed;
     top: 0;
     left: 0;
-    object-fit: cover;
-    width: 100%;
-    height: 125rem;
+    width: 100vw;
+    opacity: 80%;
+    height: 100vh;
     z-index: -1;
 }
 

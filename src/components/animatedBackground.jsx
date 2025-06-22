@@ -37,7 +37,7 @@ export default function AnimatedBackground() {
     });
 
     return (
-        <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div>
             <animated.div
                 style={{
                     transform: interpolate(
@@ -47,7 +47,7 @@ export default function AnimatedBackground() {
                     ),
                     width: '100%',
                     height: '100%',
-                    backgroundColor: 'black',
+                    margin: 1,
                     opacity: 2.2,
                     filter: 'brightness(1.5) sepia(0.3) hue-rotate(10deg) saturate(1.9)'
                 }}
