@@ -17,22 +17,20 @@ Culture, Knowledge & Health – Herbalism, teaching, art, spiritual values. */
 import React, { useState, useEffect, useRef } from "react";
 import './styles/global.css';
 import './styles/components.css';
-import AnimatedBackground from './components/animatedBackground.jsx';
 import AnimatedIntro from './components/animatedIntro.jsx';
 import CircularText from './components/circularText.jsx';
-import BackgroundVideo from './components/backgroundVideo.jsx';
 import EdenCursor from './components/EdenCursor.jsx';
 
 
 export default function NativePlantRecommender() {
-    const [showList, setShowList] = useState(true);
+    const [showList, setShowList] = useState(false);
+    const plantsPerPage = 10;
     const [allPlants, setAllPlants] = useState([]);
     const [genusImages, setGenusImages] = useState({});
-    const [showAll, setShowAll] = useState(true);
+    const [showAll, setShowAll] = useState(false);
     const [recommendations, setRecommendations] = useState([]);
     const [selectedPlant, setSelectedPlant] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
-    const plantsPerPage = 10;
     const plantDetailRef = useRef(null);
     const [loading, setLoading] = useState(false);
     const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
@@ -86,7 +84,7 @@ export default function NativePlantRecommender() {
 
     const scrollToTop = () => {
         window.scrollTo({
-            bottom: 50,
+            top: 0,
             left: 0,
             behavior: 'smooth' // Optional, for animated scrolling
         });
@@ -114,6 +112,7 @@ export default function NativePlantRecommender() {
         setSelectedPlant(null);
         setCurrentPage(1);
     }, [selectedFilters, allPlants]);
+
 
     const filterPlants = (plants) => {
         return plants.filter(plant => {
@@ -149,8 +148,6 @@ export default function NativePlantRecommender() {
         }, 200);
     };
 
-    const handleViewAll = () => setShowAll(true);
-    const handlePaginatedView = () => setShowAll(false);
 
     const handleFilterChange = (filterType, value) => {
         setSelectedFilters(prev => ({
@@ -229,63 +226,57 @@ export default function NativePlantRecommender() {
 
     return (
         <div className="page-container" ref={pageContainerRef} onScroll={handleScroll}>
-            <BackgroundVideo>
-                autoplay
-            </BackgroundVideo>
             <div className = "title-container">
+
             <CircularText
                 text="Return--To--Eden--"
-                onHover="speedUp"
-                spinDuration={30}
-                className="custom-class"
-
             />
-            <AnimatedBackground/>
 
-            <div className="title-text">
-                <div className="wrapper">
-                    <div id="E" className="letter">E</div>
-                    <div className="shadow">E</div>
-                </div>
-                <div className="wrapper">
-                    <div id="D" className="letter">D</div>
-                    <div className="shadow">D</div>
-                </div>
-                <div className="wrapper">
-                    <div id="E" className="letter">E</div>
-                    <div className="shadow">E</div>
-                </div>
-                <div className="wrapper">
-                    <div id="N" className="letter">N</div>
-                    <div className="shadow">N</div>
+                <AnimatedIntro
+                    distance={150}
+                    direction="vertical"
+                    reverse={false}
+                    duration={1.2}
+                    ease="bounce.out"
+                    initialOpacity={0.2}
+                    animateOpacity
+                    scale={3}
+                    threshold={0.2}
+                    delay={0.3}
+                >
+
+                    <h4 id = 'intro-header'>
+                        Welcome to the EdenPlant Tool!
+                    </h4>
+                    <div id = 'body-header'>
+                        Did you know? Native plants help us fight climate change by creating life in soil, serving as wildlife keystones,
+                        and preventing flooding while providing filtered drinking water!
+                    </div>
+                </AnimatedIntro>
+                <div className="title-text">
+                    <div className="wrapper">
+                        <div id="E" className="letter">E</div>
+                        <div className="shadow">E</div>
+                    </div>
+                    <div className="wrapper">
+                        <div id="D" className="letter">D</div>
+                        <div className="shadow">D</div>
+                    </div>
+                    <div className="wrapper">
+                        <div id="E" className="letter">E</div>
+                        <div className="shadow">E</div>
+                    </div>
+                    <div className="wrapper">
+                        <div id="N" className="letter">N</div>
+                        <div className="shadow">N</div>
+                    </div>
                 </div>
             </div>
-            </div>
-
-            <AnimatedIntro
-                distance={150}
-                direction="vertical"
-                reverse={false}
-                duration={1.2}
-                ease="bounce.out"
-                initialOpacity={0.2}
-                animateOpacity
-                scale={3}
-                threshold={0.2}
-                delay={0.3}
-            >
-
-                <h4 id = 'intro-header'>
-                    Welcome to the EdenPlant Tool!
-                </h4>
-                <h3 id = 'body-header'>
-                    Did you know? Native plants help us fight climate change by creating life in soil, serving as wildlife keystones,
-                    and preventing flooding while providing filtered drinking water!
-                </h3>
-            </AnimatedIntro>
 
                   <div className="intro-container">
-                      Utilize the filters below to select the perfect plant or food for your green space :)
+                     <h4 id = 'filter-header'>
+                         Utilize the filters below to select the perfect plant or food for your green space :)
+                     </h4>
                     <div className="filter-section">
 <div className ='filter-container'>
     <EdenCursor
@@ -399,44 +390,105 @@ export default function NativePlantRecommender() {
                             Clear Filter
                         </button>
                         </div>
-                        <button className="scroll-to-results-button" onClick={() => setShowList(!showList)}>
-                            {showList ? "Hide Plants" : "Show Plants"}
-                        </button>
                     </div>
                 </div>
                   </div>
 
             <div className="app-container">
                 <ul>
-                    <h4 className="header-container">Recommendations: {recommendations.length}</h4>
+                    <section className="header-container">
+                        <h4>Recommendations: {recommendations.length}</h4>
+                        <button className="results-button" onClick={() => setShowList(!showList)}>
+                            {showList ? "Hide Reults" : "Show Results"}
+                        </button>
+                    </section>
                     {showList && currentPlants.map((plant, index) => (
                         <li className="plant-list" key={index} onClick={() => showPlantDetails(plant)}>
                             <div className="plant-title">
                                 <strong>{plant.common_name.toUpperCase()}</strong><br/>
                                 <strong>{plant.plantType}</strong><br/>
                                 <em>{plant.botanical_name}</em>
-                            </div>
-                            <div className="plant-traits">
-                                {plant.rain_garden_wet &&
-                                    <span className="trait-badge wet">Loves Water (Rain garden)</span>}
-                                {plant.bloom_time && <span className="trait-badge pollinator">Pollinator</span>}
-                                {plant.rain_garden_dry &&
-                                    <span className="trait-badge dry">Drought Tolerant (Rain garden slopes)</span>}
-                                {plant.bioswale &&
-                                    <span className="trait-badge bioswale">Flooding Control/Bioswale</span>}
-                                {plant.wildlife_keystone &&
-                                    <span className="trait-badge wildlife">Wildlife Keystone</span>}
-                                {plant.ground_cover && <span className="trait-badge groundcover">Ground Cover</span>}
+                                <div className="plant-traits">
+                                    {plant.rain_garden_wet && plant.bioswale &&
+                                        <span className="trait-badge wet">Flooding Control</span>}
+                                    {plant.bloom_time && <span className="trait-badge pollinator">Pollinator</span>}
+                                    {plant.rain_garden_dry &&
+                                        <span className="trait-badge dry">Erosion Control</span>}
+                                    {plant.wildlife_keystone &&
+                                        <span className="trait-badge wildlife">Wildlife Keystone</span>}
+                                    {plant.ground_cover && <span className="trait-badge groundcover">Ground Cover</span>}
+                                </div>
                             </div>
                         </li>
                     ))}
                 </ul>
+                {selectedPlant && (
+                    <div className="results-list">
+                        <div ref={plantDetailRef} className="plant-details">
+                            <div className="header-container">
+                                <strong>Scientific Name</strong><br/>
+                                <i>{selectedPlant.botanical_name}</i>
+                                <h2>Common Name:</h2>
+                                <p>{selectedPlant.common_name.toUpperCase()}</p>
+                                <section className = 'mini-container'>
+                                    <h3>Genus: {(selectedPlant.botanical_name.split(' ')[0])}</h3>
+                                <strong>Type: {selectedPlant.plant_type || 'Plant'}</strong>
+
+                                    </section>
+                            </div>
+                            <div className="plant-image-container">
+                                {loading && (
+                                    <div className="loading-message">
+                                        <h4>
+                                            Loading, please wait :)
+                                        </h4>
+                                    </div>
+                                )}
+                                <img
+                                    className="plant-image"
+                                    src={getImageFromJson(selectedPlant, genusImages)}
+                                    alt={selectedPlant.botanical_name}
+                                />
+                            </div>
+                            <i>All Pictures and Descriptions are sourced from The MOBOT or MDC.</i>
+                            <div>
+                                <button className='pagination-button'>
+                                    <a href={getSourceUrl(selectedPlant, genusImages)}>Source</a>
+                                </button>
+                            </div>
+                            <section className="plant-details">
+                                <h4>Description: </h4>
+                                <p>{getDescription(selectedPlant, genusImages) || 'No Description Found'}</p>
+                            </section>
+
+                            <h4 className='mini-container'>Plant Characteristics:</h4>
+
+                            <div className={'plant-tag-container'}>
+                                <div className="plant-traits">
+                                    {selectedPlant.rain_garden_wet && <span className="trait-badge wet">Loves Water</span>}
+                                    {selectedPlant.bloom_time && <span className="trait-badge pollinator">Pollinator</span>}
+                                    {selectedPlant.rain_garden_dry &&
+                                        <span className="trait-badge dry">Drought Tolerant</span>}
+                                    {selectedPlant.bioswale &&
+                                        <span className="trait-badge bioswale">Flooding Control/Bioswale</span>}
+                                    {selectedPlant.wildlife_keystone &&
+                                        <span className="trait-badge wildlife">Wildlife Keystone</span>}
+                                    {selectedPlant.ground_cover &&
+                                        <span className="trait-badge groundcover">Ground Cover</span>}
+                                </div>
+                                <p>Soil: {selectedPlant.soil_type === 'moist' ? 'Moist areas' : 'Dry areas'}</p>
+                                <p>Sun: {selectedPlant.full_sun ? 'Full sun' : ''}
+                                    {selectedPlant.part_shade ? ' Part shade' : ''}
+                                    {selectedPlant.full_shade ? ' Full shade' : ''}</p>
+                                <p>Height: {selectedPlant.height}</p>
+                                <p>Bloom Time: {selectedPlant.bloom_time}</p>
+                                <h4 className='mini-container'>Recommended Uses:</h4>
+                                <p>{getPlantHabitats(selectedPlant).join(', ') || 'None specified'}</p>
+                            </div>
+                        </div>
+                    </div>
+                )}
                 <div className="pagbuttons-container">
-                    {showAll && (
-                        <button onClick={handlePaginatedView} className="pagination-button">
-                            Show Paginated
-                        </button>
-                    )}
                     {!showAll && (
                         <>
                             <button className="pagination-button" disabled={currentPage === 1}
@@ -451,79 +503,13 @@ export default function NativePlantRecommender() {
                         </>
                     )}
                 </div>
-                <div className="pagbuttons-container">
-                    <button onClick={scrollToTop} className="pagination-button">
-                        !Go ^^ Up!
-                    </button>
-                    <button onClick={handleViewAll} className="pagination-button">
-                        View All Plants
-                    </button>
-                </div>
+                <button onClick={scrollToTop} className="pagination-button">
+                    !Go ^^ Up!
+                </button>
             </div>
-            {selectedPlant && (
-                <div className="results-list">
-                    <div ref={plantDetailRef} className="plant-details">
-                        <div className="header-container">
-                            <strong>Scientific Name</strong><br/>
-                            <h4>{selectedPlant.botanical_name}</h4>
-                            <h2>Common Name:</h2>
-                            <strong>{selectedPlant.common_name.toUpperCase()}</strong>
-                        </div>
-                        <section className="mini-container">
-                            <h3>Genus:</h3>
-                            <h4>{(selectedPlant.botanical_name.split(' ')[0])}</h4>
-                            <strong>Type: {selectedPlant.plant_type || 'Plant'}</strong>
-                        </section>
-                        <div className="plant-image-container">
-                            {loading && (
-                                <div className="loading-message">
-                                    <h4>
-                                        Loading, please wait :)
-                                    </h4>
-                                </div>
-                            )}
-                            <img
-                                className="plant-image"
-                                src={getImageFromJson(selectedPlant, genusImages)}
-                                alt={selectedPlant.botanical_name}
-                            />
-                        </div>
-                        <h6>All Pictures and Descriptions are sourced from The MOBOT or MDC.</h6>
-                        <div>
-                            <button className='pagination-button'>
-                                <a href={getSourceUrl(selectedPlant, genusImages)}>Source</a>
-                            </button>
-                        </div>
-                        <section className="plant-details">
-                            <h4>Description: </h4>
-                            <p>{getDescription(selectedPlant, genusImages) || 'No Description Found'}</p>
-                        </section>
-                        <div className={'plant-tag-container'}>
-                            <h4 className='mini-container'>Plant Characteristics:</h4>
-                            <div className="plant-traits">
-                                {selectedPlant.rain_garden_wet && <span className="trait-badge wet">Loves Water</span>}
-                                {selectedPlant.bloom_time && <span className="trait-badge pollinator">Pollinator</span>}
-                                {selectedPlant.rain_garden_dry &&
-                                    <span className="trait-badge dry">Drought Tolerant</span>}
-                                {selectedPlant.bioswale &&
-                                    <span className="trait-badge bioswale">Flooding Control/Bioswale</span>}
-                                {selectedPlant.wildlife_keystone &&
-                                    <span className="trait-badge wildlife">Wildlife Keystone</span>}
-                                {selectedPlant.ground_cover &&
-                                    <span className="trait-badge groundcover">Ground Cover</span>}
-                            </div>
-                            <p>Soil: {selectedPlant.soil_type === 'moist' ? 'Moist areas' : 'Dry areas'}</p>
-                            <p>Sun: {selectedPlant.full_sun ? 'Full sun' : ''}
-                                {selectedPlant.part_shade ? ' Part shade' : ''}
-                                {selectedPlant.full_shade ? ' Full shade' : ''}</p>
-                            <p>Height: {selectedPlant.height}</p>
-                            <p>Bloom Time: {selectedPlant.bloom_time}</p>
-                            <h4 className='mini-container'>Recommended Uses:</h4>
-                            <p>{getPlantHabitats(selectedPlant).join(', ') || 'None specified'}</p>
-                        </div>
-                    </div>
-                </div>
-            )}
+
+
+
         </div>
     );
 }

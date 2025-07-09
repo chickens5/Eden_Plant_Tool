@@ -90,7 +90,7 @@ const CircularText = ({
     return (
         <motion.div
             className={`circular-text ${className}`}
-            style={{ rotate: rotation, color: "white"}}
+            style={{ rotate: rotation, color: "black"}}
             initial={{ rotate: 0 }}
             animate={controls}
             onMouseEnter={handleHoverStart}
@@ -104,7 +104,7 @@ const CircularText = ({
                 const transform = `rotateZ(${rotationDeg}deg) translate3d(${x}px, ${y}px, 0)`;
 
                 return (
-                    <span key={i} className ='title-text' style={{ transform, WebkitTransform: transform }}>
+                    <span key={i} style={{ transform, WebkitTransform: transform }}>
             {letter}
           </span>
                 );
